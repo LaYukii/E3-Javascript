@@ -58,7 +58,6 @@ form.addEventListener("submit", (e) => {
     const foundPizza = pizzas.find((pizza) => pizza.id === parseInt(number));
     if (foundPizza) {
       renderPizzaCard(foundPizza, container);
-      container.style.display = "block"; // Mostrar el contenedor
       localStorage.setItem("lastSearchedPizza", JSON.stringify(foundPizza));
     } else {
       renderError("No hay una pizza con ese número.", container);
