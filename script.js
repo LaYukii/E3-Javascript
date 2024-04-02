@@ -58,6 +58,7 @@ form.addEventListener("submit", (e) => {
     const foundPizza = pizzas.find((pizza) => pizza.id === parseInt(number));
     if (foundPizza) {
       renderPizzaCard(foundPizza, container);
+      container.style.display = "block"; // Mostrar el contenedor
       localStorage.setItem("lastSearchedPizza", JSON.stringify(foundPizza));
     } else {
       renderError("No hay una pizza con ese número.", container);
@@ -85,8 +86,7 @@ const renderError = (message, container) => {
 };
 
 // Se fija en la ultima pizza encontrada en el localStorage
-const lastSearchedPizza =
-  JSON.parse(localStorage.getItem("lastSearchedPizza")) || [];
+const lastSearchedPizza = JSON.parse(localStorage.getItem("lastSearchedPizza"));
 if (lastSearchedPizza) {
   renderPizzaCard(lastSearchedPizza, container);
 }
